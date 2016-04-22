@@ -50,27 +50,32 @@ public class ItemListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
+        recyclerView = findViewById(R.id.item_list);
+        assert recyclerView != null;
+        ((RecyclerView) recyclerView).setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+
         Point point = new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
         displayWidth = point.x;
         displayHeight = point.y;
-        /*if (displayHeight < displayWidth) {
+        if (displayHeight < displayWidth) {
             int x = displayHeight;
             displayHeight = displayWidth;
             displayWidth = displayHeight;
-        }*/
+            ((RecyclerView) recyclerView).setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
+        }
 
         dbHandler = new FavDB(ItemListActivity.this);
 
-        recyclerView = findViewById(R.id.item_list);
-        assert recyclerView != null;
-        ((RecyclerView) recyclerView).setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+
         GetPopularMovies();
 
         if (findViewById(R.id.item_detail_container) != null) {
             mTwoPane = true;
         }
     }
+
+
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(movieList));
@@ -137,7 +142,7 @@ public class ItemListActivity extends AppCompatActivity {
                 poster = (ImageView) view.findViewById(R.id.posterHolder);
                 poster.setLayoutParams(
                         new LinearLayout.LayoutParams(
-                                ((int) Math.round(0.282 * displayHeight)), ((int) Math.round(0.70 * displayWidth))));
+                                ((int) Math.round(0.31 * displayHeight)), (int) Math.round(0.65 * displayWidth)));
             }
 
         }
