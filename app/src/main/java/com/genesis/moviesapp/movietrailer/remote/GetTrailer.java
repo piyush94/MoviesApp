@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface GetTrailer {
 
-    @GET("videos?api_key=YOUR_API_KEY")
+    @GET("videos?api_key=104822a88d9fa8c31861e18640bb2777")
     Call<MovieTrailer> getResults();
 
     class Factory {

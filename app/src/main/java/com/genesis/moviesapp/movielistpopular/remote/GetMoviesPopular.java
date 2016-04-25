@@ -10,9 +10,9 @@ import retrofit2.http.GET;
 
 public interface GetMoviesPopular {
 
-    String BASE_URL = "https://api.themoviedb.org/3/discover/";
+    String BASE_URL = "https://api.themoviedb.org/3/";
 
-    @GET("movie?api_key=YOUR_API_KEY&sort_by=popularity.desc")
+    @GET("movie/popular?api_key=104822a88d9fa8c31861e18640bb2777")
     Call<MoviesPopular> getResults();
 
     class Factory {

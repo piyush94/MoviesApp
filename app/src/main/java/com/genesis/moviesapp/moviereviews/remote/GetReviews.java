@@ -11,7 +11,7 @@ import retrofit2.http.GET;
  * Created by Piyush on 02-Apr-16.
  */
 public interface GetReviews {
-    @GET("reviews?api_key=YOUR_API_KEY")
+    @GET("reviews?api_key=104822a88d9fa8c31861e18640bb2777")
     Call<MovieReviews> getResults();
 
     class Factory{
